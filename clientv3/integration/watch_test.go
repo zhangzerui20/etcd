@@ -338,6 +338,7 @@ func putAndWatch(t *testing.T, wctx *watchctx, key, val string) {
 		if !ok {
 			t.Fatalf("unexpected watch close")
 		}
+		fmt.Printf("get event %+v\n", v)
 		if string(v.Events[0].Kv.Value) != val {
 			t.Fatalf("bad value got %v, wanted %v", v.Events[0].Kv.Value, val)
 		}
